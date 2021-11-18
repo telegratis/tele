@@ -40,7 +40,7 @@
 }
 var getURL = getParameterByName('get');
 if (getURL == "#") {alert('Vuelve a la pagina anterior');}
-if (getURL == "") {location.href="https://canal.cablegratis.online";}
+if (getURL == "") {location.href="https://telegratis.online";}
 if (getURL.length > 10) {
 var container = document.getElementById('bitmovin-94527');
 }
@@ -72,7 +72,7 @@ const config = {
 
 var source = {
 	
-dash: atob(getURL),
+dash: 'atob(getURL)',
 drm: {
     widevine: {
       LA_URL: 'https://telegratis.webcindario.com/cv.php'
@@ -82,8 +82,7 @@ drm: {
 	
 	//poster: ""
 }
-}
- 
+
 var player = new bitmovin.player.Player(container, config);
     player.load(source);
 
