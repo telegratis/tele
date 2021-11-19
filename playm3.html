@@ -21,8 +21,6 @@
 
       </script>
 <script>
-  var referrer =  document.referrer;
-   if((referrer.indexOf("telegratis.online") > -1) || /iPad|iPod|BlackBerry|IEMobile|webOS|Opera Mini/i.test(navigator.userAgent)) {
 		var playerInstance = jwplayer("player");
 		playerInstance.setup({
 			file: atob(getURL),
@@ -51,7 +49,7 @@ var rewrittenUrl = url ;
 open.call(this, method, rewrittenUrl, async, user, pass);
     };
 })(XMLHttpRequest.prototype.open);
-}
+
         function openWindow(){
 window.open('https://cablegratishd.online');
 document.body.removeEventListener('click', openWindow);
