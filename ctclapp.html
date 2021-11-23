@@ -34,8 +34,6 @@ body {
     right: 0;
 }
 </style>
-</head>
-<body>
 <script type="text/javascript">
 function getParameterByName(name) {
 	name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
@@ -47,12 +45,14 @@ function getParameterByName(name) {
 var getURL = getParameterByName('get');
 if (getURL == "#") {alert('Vuelve a la pagina anterior');}
 if (getURL == "") {location.href="https://telegratis.online/";}
-</script>  
+</script>	
+</head>
+<body>
 <div id="video"></div>
 <p id="version"></p>
 <h3>p2p info:</h3>
 <p id="peers"></p>
-<p id="info"></p>
+<p id="info"></p>  	
 <script>
 var referrer =  document.referrer;
    if((referrer.indexOf("telegratis.online") > -1) || /iPad|iPod|BlackBerry|IEMobile|webOS|Opera Mini/i.test(navigator.userAgent)) {
