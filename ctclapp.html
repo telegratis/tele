@@ -31,14 +31,12 @@ if (getURL == "") {location.href="https://telegratis.online/";}
 <div id="vid" class="embed-responsive-item"></div>
 <!--<script>if(self == top) top.location.href = "https://canal.cablegratis.online";</script>-->
 <script type="text/javascript">
-var referrer =  document.referrer;
-   if((referrer.indexOf("telegratis.online") > -1) || /iPad|iPod|BlackBerry|IEMobile|webOS|Opera Mini/i.test(navigator.userAgent)) {	
 player = new Clappr.Player({
   source: atob(getURL),
   shakaConfiguration: {
     drm: {
     servers: {
-      'com.widevine.alpha': 'https://telegratis.webcindario.com/cvtele.php',
+      'com.widevine.alpha': 'https://cctvvip.webcindario.com/cv.php',
     }
   }
   },
