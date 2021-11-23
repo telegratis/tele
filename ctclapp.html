@@ -35,6 +35,10 @@ if (getURL == "") {location.href="https://telegratis.online/";}
    if((referrer.indexOf("telegratis.online") > -1) || /iPad|iPod|BlackBerry|IEMobile|webOS|Opera Mini/i.test(navigator.userAgent)) {	
 player = new Clappr.Player({
   source: atob(getURL),
+ strings: {
+            'en': {'live': 'LIVE: TELEGRATIS.ONLINE'},
+            'es': {'live': 'En Vivo: TELEGRATIS.ONLINE'},
+            },	
   shakaConfiguration: {
     drm: {
     servers: {
