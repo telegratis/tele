@@ -1,39 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>REPRODUCTOR</title>
-<script src="/cdn-cgi/apps/head/ulIRyxHn-1bIcLYrnVKNzXXyMy8.js"></script><script src="//cdn.jsdelivr.net/npm/@clappr/player@0.4.0/dist/clappr.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/mux.js@5.6.7/dist/mux.min.js"></script>
-<script src='//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js'></script>
-<script src='//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js'></script>
-<script src='//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js'></script>
-<script src='//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js'></script>
-<script src="//cdn.jsdelivr.net/npm/shaka-player@2.5.10/dist/shaka-player.compiled.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.external.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/cdnbye-shaka@latest"></script>
 <style type="text/css">
 body {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0; background-color: #000;
-    margin: 0;
-}
-#video {
-    width: 100vw;
-    height: 100%;
-    //max-height: 100vh;
-    //max-width: 177.78vh;
-    //margin: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0; background-color: #000;
-    right: 0;
+   margin: 0;
+   padding: 0;
 }
 </style>
+<meta charset="utf-8" />
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="robots" content="noindex">
+<head><script type="text/javascript" charset="utf-8" async="" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script><script type="text/javascript" charset="utf-8" async="" src="https://ssl.p.jwpcdn.com/player/v/8.18.4/jwpsrv.js"></script>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script type="text/javascript" src="//cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
 <script type="text/javascript">
 function getParameterByName(name) {
 	name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
@@ -46,57 +28,25 @@ var getURL = getParameterByName('get');
 if (getURL == "#") {alert('Vuelve a la pagina anterior');}
 if (getURL == "") {location.href="https://telegratis.online/";}
 </script>	
-</head>
-<body>
-<div id="vipvideo"></div>
-<p id="version"></p>
-<h3>p2p info:</h3>
-<p id="peers"></p>
-<p id="info"></p>
-<script>
-    var player = new Clappr.Player({
-        parentId: "#vipvideo",
-        source: atob(getURL),
-        plugins: [DashShakaPlayback],
-          width: '100%',
-          height: '520px',
-        shakaConfiguration: {
-          drm: {
-            servers: {
-              'com.widevine.alpha': 'https://telegratis.webcindario.com/cvtele.php'
-           } 
-        } 
-       },
-        shakaOnBeforeLoad: function(shakaPlayerInstance) {
-            if (P2PEngineShaka.isSupported()) {
-                var engine = new P2PEngineShaka(shakaPlayerInstance, {
-                   // logLevel: 'debug',
-                });
-                 engine.on('stats', function (stats) {
-            var total = stats.totalHTTPDownloaded + stats.totalP2PDownloaded;
-            document.querySelector('#info').innerText = `p2p ratio: ${Math.round(stats.totalP2PDownloaded/total*100)}%   saved traffic: ${Math.round(stats.totalP2PDownloaded)}KB upload: ${Math.round(stats.totalP2PUploaded)}KB`;
-        })
-        engine.on('peers', function (peers) {
-            document.querySelector('#peers').innerText = `peers: ${peers.length}`;
-        })
-            }
-        }
-
-    });
-
-//darle auto play o desactivar
-player.play();
-
-function openWindow(){
-window.open('https://cablegratishd.online');
-document.body.removeEventListener('click', openWindow);
-//cambiar de play o stop y en el player antes decia de playerInstance ya que es de jw y fue cambiado por player de shaka
-player.play(); 
-}
-
-document.body.addEventListener('click', openWindow);
-eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/^/,String)){while(c--){d[c.toString(a)]=k[c]||c.toString(a)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('(3(){(3 a(){8{(3 b(2){7((\'\'+(2/2)).6!==1||2%5===0){(3(){}).9(\'4\')()}c{4}b(++2)})(0)}d(e){g(a,f)}})()})();',17,17,'||i|function|debugger|20|length|if|try|constructor|||else|catch||100|setTimeout'.split('|'),0,{}))
-document.oncontextmenu = function(){return false};
+<div id="vid" class="embed-responsive-item"></div>
+<!--<script>if(self == top) top.location.href = "https://canal.cablegratis.online";</script>-->
+<script type="text/javascript">
+var referrer =  document.referrer;
+   if((referrer.indexOf("telegratis.online") > -1) || /iPad|iPod|BlackBerry|IEMobile|webOS|Opera Mini/i.test(navigator.userAgent)) {	
+player = new Clappr.Player({
+  source: atob(getURL),
+  shakaConfiguration: {
+    drm: {
+    servers: {
+      'com.widevine.alpha': 'https://telegratis.webcindario.com/cvtele.php',
+    }
+  }
+  },
+  autoPlay: false, 
+  mute: false, 
+  height: '100%',
+  width: '100%',
+  plugins: [DashShakaPlayback],  
+  parentId: "#vid"
+});
 </script>
-</body>
-</html>
