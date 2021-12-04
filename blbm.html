@@ -38,7 +38,7 @@ var co =  url.searchParams.get("co");
     
  var playReadyLaURL = "";
   // license server for Widevine
-  var widevineLaURL = "https://api.blim.com/license/widevine";
+  //var widevineLaURL = "#";
 
         $( document ).ready(function() {
 var conf = {
@@ -66,7 +66,7 @@ skin: {
              headers: [{
                   name: 'authorization',
                     value: atob(fi),
-                }], //LA_URL: atob("Ly9hcGkuYmxpbS5jb20vbGljZW5zZS93aWRldmluZQ=="),
+                }], LA_URL: atob("Ly9hcGkuYmxpbS5jb20vbGljZW5zZS93aWRldmluZQ=="),
 }
 
 
