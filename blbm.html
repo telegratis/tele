@@ -1,0 +1,117 @@
+                    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="//stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//bitmovin-a.akamaihd.net/bitmovin-player/stable/7.8/bitmovinplayer.js"></script>
+<script type="text/javascript">
+    let fi = "T0F1dGggb2F1dGhfY29uc3VtZXJfa2V5PTE5YmVkMzNmYTc0MDM4OTk3M2EzNWIxZThjNTRmODA5Y2QwMDhlZmU4YjUwN2E2NDAyZjVmYTlkNDk4MmJmOTUsIG9hdXRoX25vbmNlPTBheHBvRiwgb2F1dGhfc2lnbmF0dXJlPXVmQWN0ajZlSndsMGQlMkZ2RTN1cTJTbnR3bSUyQnclM0QsIG9hdXRoX3NpZ25hdHVyZV9tZXRob2Q9SE1BQy1TSEExLCBvYXV0aF90aW1lc3RhbXA9MTYyNzYwMzk5NCwgb2F1dGhfdmVyc2lvbj0xLjA"; 
+</script>
+<script type="text/javascript">
+function getParameterByName(e){e=e.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");e=new RegExp("[\\?&]"+e+"=([^&#]*)").exec(location.search);return null===e?"":decodeURIComponent(e[1].replace(/\+/g," "))}var getURL=getParameterByName("get");"#"==getURL&&alert("Vuelve a la pagina anterior"),""==getURL&&(location.href="https://telegratis.online");  
+</script>
+<div id="bit-1000"></div>
+<script>
+function override(url){if(url.indexOf("licensing.bitmovin.com/licensing")>-1)return "bm";if(url.indexOf("licensing.bitmovin.com/impression")>-1)return "impression";return url;}
+var open=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(){var url=override(arguments[1]);arguments[1]=url;return open.apply(this,arguments);}
+function base64DecodeUint8Array(input){var raw=window.atob(input);var rawLength=raw.length;var array=new Uint8Array(new ArrayBuffer(rawLength));for(i=0;i<rawLength;i++){array[i]=raw.charCodeAt(i);}
+return array;}
+function ab2str(buf){return String.fromCharCode.apply(null,new Uint8Array(buf));}
+function _Base64(t){var e;if("string"==typeof t)
+e=t;else if(t instanceof ArrayBuffer)
+e=String.fromCharCode.apply(null,new Uint8Array(t));else{if(!(t instanceof Uint8Array))
+return "";e=String.fromCharCode.apply(null,t)}
+return window.btoa(e)}
+  // DASH streaming URL
+var url = new URL(window.location.href);
+var ids =  url.searchParams.get("id");
+var co =  url.searchParams.get("co");
+ var cdcsd =  url.hostname;
+
+// if  (cdcsd !== "")
+//window.location.replace("");
+    
+ var playReadyLaURL = "";
+  // license server for Widevine
+  //var widevineLaURL = "#";
+
+        $( document ).ready(function() {
+var conf = {
+                key: "Y2tvaWtjY29lbSEqXyVrZG9lYTJzZT9yb201ZGFzaXMzMGRiMEElXzo=",
+                 
+
+
+style: {
+        width: '100%',
+        aspectratio: '16:9',
+        controls: true
+    },
+    
+  
+
+
+skin: {
+        screenLogoImage: ""
+    },
+
+  source: {
+    dash: atob(getURL),
+
+     //poster: 'https://bitmovin-a.akamaihd.net/content/MI201109210084_1/poster.jpg',
+
+  
+    drm: {                
+        widevine: { 
+             headers: [{
+                  name: 'authorization',
+                    value: atob(fi),
+                }], LA_URL: atob("Ly9hcGkuYmxpbS5jb20vbGljZW5zZS93aWRldmluZQ=="),
+}
+
+
+
+  }},
+  
+ 
+  
+   network: {
+  preprocessHttpRequest: function(type, request) {
+          if (type === bitmovin.player.network.REQUEST_TYPE.DRM_LICENSE_WIDEVINE) {
+                    request.method = 'POST';
+        
+
+                    return Promise.resolve(request);
+                    
+                }
+     
+  }
+},
+ 
+
+
+};
+
+
+ 
+
+var player = bitmovin.player('bit-1000');
+
+player.setup(conf).then(
+  function(value) {
+    // Success
+    console.log('Successfully created bitmovin player instance');
+  },
+  function(reason) {
+    // Error!
+    console.log('Error while creating bitmovin player instance');
+  }
+);
+        });
+
+    
+</script>
