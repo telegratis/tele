@@ -12,11 +12,9 @@
 <script type="text/javascript">
     let fi = "T0F1dGggb2F1dGhfY29uc3VtZXJfa2V5PTE5YmVkMzNmYTc0MDM4OTk3M2EzNWIxZThjNTRmODA5Y2QwMDhlZmU4YjUwN2E2NDAyZjVmYTlkNDk4MmJmOTUsIG9hdXRoX25vbmNlPTBheHBvRiwgb2F1dGhfc2lnbmF0dXJlPXVmQWN0ajZlSndsMGQlMkZ2RTN1cTJTbnR3bSUyQnclM0QsIG9hdXRoX3NpZ25hdHVyZV9tZXRob2Q9SE1BQy1TSEExLCBvYXV0aF90aW1lc3RhbXA9MTYyNzYwMzk5NCwgb2F1dGhfdmVyc2lvbj0xLjA"; 
 </script>
-<script type="text/javascript">
-function getParameterByName(e){e=e.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");e=new RegExp("[\\?&]"+e+"=([^&#]*)").exec(location.search);return null===e?"":decodeURIComponent(e[1].replace(/\+/g," "))}var getURL=getParameterByName("get");"#"==getURL&&alert("Vuelve a la pagina anterior"),""==getURL&&(location.href="https://telegratis.online");  
-</script>
 <div id="bit-1000"></div>
 <script>
+function getParameterByName(e){e=e.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");e=new RegExp("[\\?&]"+e+"=([^&#]*)").exec(location.search);return null===e?"":decodeURIComponent(e[1].replace(/\+/g," "))}var getURL=getParameterByName("get");"#"==getURL&&alert("Vuelve a la pagina anterior"),""==getURL&&(location.href="https://telegratis.online"); 
 function override(url){if(url.indexOf("licensing.bitmovin.com/licensing")>-1)return "bm";if(url.indexOf("licensing.bitmovin.com/impression")>-1)return "impression";return url;}
 var open=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(){var url=override(arguments[1]);arguments[1]=url;return open.apply(this,arguments);}
 function base64DecodeUint8Array(input){var raw=window.atob(input);var rawLength=raw.length;var array=new Uint8Array(new ArrayBuffer(rawLength));for(i=0;i<rawLength;i++){array[i]=raw.charCodeAt(i);}
