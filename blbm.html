@@ -38,7 +38,7 @@ var co =  url.searchParams.get("co");
     
  var playReadyLaURL = "";
   // license server for Widevine
-  //var widevineLaURL = "#";
+  var widevineLaURL = atob("Ly9hcGkuYmxpbS5jb20vbGljZW5zZS93aWRldmluZQ==");
 
         $( document ).ready(function() {
 var conf = {
@@ -61,16 +61,12 @@ skin: {
 
   source: {
     dash: atob(getURL),
-
-     //poster: 'https://bitmovin-a.akamaihd.net/content/MI201109210084_1/poster.jpg',
-
-  
     drm: {                
         widevine: { 
              headers: [{
                   name: 'authorization',
                     value: atob(fi),
-                }], LA_URL: atob("Ly9hcGkuYmxpbS5jb20vbGljZW5zZS93aWRldmluZQ=="),
+                }], //LA_URL: atob("Ly9hcGkuYmxpbS5jb20vbGljZW5zZS93aWRldmluZQ=="),
 }
 
 
