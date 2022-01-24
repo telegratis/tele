@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Clapp</title>
+<script src="//cdn.jsdelivr.net/npm/@clappr/player@0.4.0/dist/clappr.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/mux.js@5.6.7/dist/mux.min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js'></script>
+<script src='//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js'></script>
+<script src='//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js'></script>
+<script src='//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js'></script>
+<script src="//cdn.jsdelivr.net/npm/shaka-player@2.5.10/dist/shaka-player.compiled.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.external.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/cdnbye-shaka@latest"></script>
+<style type="text/css">
+body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0; background-color: #000;
+    margin: 0;
+}
+#video {
+    width: 100vw;
+    height: 100%;
+    //max-height: 100vh;
+    //max-width: 177.78vh;
+    //margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; background-color: #000;
+    right: 0;
+}
+</style>
+</head>
+<body>
+<div id="video"></div>
+<p id="version"></p>
+<h3>p2p info:</h3>
+<p id="peers"></p>
+<p id="info"></p>
+<script>
+var _0x5593=["\x72\x65\x66\x65\x72\x72\x65\x72","\x63\x61\x6E\x61\x6C\x2E\x63\x61\x62\x6C\x65\x67\x72\x61\x74\x69\x73\x2E\x6F\x6E\x6C\x69\x6E\x65","\x69\x6E\x64\x65\x78\x4F\x66","\x75\x73\x65\x72\x41\x67\x65\x6E\x74","\x74\x65\x73\x74","\x23\x76\x69\x64\x65\x6F","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x65\x64\x67\x65\x31\x30\x2D\x73\x6C\x2E\x63\x76\x61\x74\x74\x76\x2E\x63\x6F\x6D\x2E\x61\x72\x2F\x6C\x69\x76\x65\x2F\x63\x33\x65\x64\x73\x2F\x56\x54\x56\x5F\x50\x6C\x75\x73\x5F\x48\x44\x2F\x53\x41\x5F\x4C\x69\x76\x65\x5F\x64\x61\x73\x68\x5F\x65\x6E\x63\x2F\x56\x54\x56\x5F\x50\x6C\x75\x73\x5F\x48\x44\x2E\x6D\x70\x64","\x50\x69\x70\x42\x75\x74\x74\x6F\x6E","\x50\x69\x70\x50\x6C\x75\x67\x69\x6E","\x4D\x65\x64\x69\x61\x43\x6F\x6E\x74\x72\x6F\x6C","\x63\x6C\x69\x63\x6B\x5F\x74\x6F\x5F\x70\x61\x75\x73\x65","\x67\x65\x74\x50\x6C\x75\x67\x69\x6E","\x64\x69\x73\x61\x62\x6C\x65","\x31\x30\x30\x25","\x4C\x49\x56\x45\x3A\x20","\x45\x6E\x20\x56\x69\x76\x6F\x3A\x20","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x63\x63\x74\x76\x76\x69\x70\x2E\x77\x65\x62\x63\x69\x6E\x64\x61\x72\x69\x6F\x2E\x63\x6F\x6D\x2F\x63\x76\x75\x79\x2E\x70\x68\x70","\x69\x73\x53\x75\x70\x70\x6F\x72\x74\x65\x64","\x73\x74\x61\x74\x73","\x74\x6F\x74\x61\x6C\x48\x54\x54\x50\x44\x6F\x77\x6E\x6C\x6F\x61\x64\x65\x64","\x74\x6F\x74\x61\x6C\x50\x32\x50\x44\x6F\x77\x6E\x6C\x6F\x61\x64\x65\x64","\x69\x6E\x6E\x65\x72\x54\x65\x78\x74","\x23\x69\x6E\x66\x6F","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x70\x32\x70\x20\x72\x61\x74\x69\x6F\x3A\x20","\x72\x6F\x75\x6E\x64","\x25\x20\x20\x20\x73\x61\x76\x65\x64\x20\x74\x72\x61\x66\x66\x69\x63\x3A\x20","\x4B\x42\x20\x75\x70\x6C\x6F\x61\x64\x3A\x20","\x74\x6F\x74\x61\x6C\x50\x32\x50\x55\x70\x6C\x6F\x61\x64\x65\x64","\x4B\x42","\x6F\x6E","\x70\x65\x65\x72\x73","\x23\x70\x65\x65\x72\x73","\x70\x65\x65\x72\x73\x3A\x20","\x6C\x65\x6E\x67\x74\x68","","\x70\x6C\x61\x79","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x63\x61\x62\x6C\x65\x67\x72\x61\x74\x69\x73\x68\x64\x2E\x6F\x6E\x6C\x69\x6E\x65","\x6F\x70\x65\x6E","\x63\x6C\x69\x63\x6B","\x72\x65\x6D\x6F\x76\x65\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x62\x6F\x64\x79","\x73\x74\x6F\x70","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x28\x33\x28\x29\x7B\x28\x33\x20\x61\x28\x29\x7B\x38\x7B\x28\x33\x20\x62\x28\x32\x29\x7B\x37\x28\x28\x27\x27\x2B\x28\x32\x2F\x32\x29\x29\x2E\x36\x21\x3D\x3D\x31\x7C\x7C\x32\x25\x35\x3D\x3D\x3D\x30\x29\x7B\x28\x33\x28\x29\x7B\x7D\x29\x2E\x39\x28\x27\x34\x27\x29\x28\x29\x7D\x63\x7B\x34\x7D\x62\x28\x2B\x2B\x32\x29\x7D\x29\x28\x30\x29\x7D\x64\x28\x65\x29\x7B\x67\x28\x61\x2C\x66\x29\x7D\x7D\x29\x28\x29\x7D\x29\x28\x29\x3B","\x7C","\x73\x70\x6C\x69\x74","\x7C\x7C\x69\x7C\x66\x75\x6E\x63\x74\x69\x6F\x6E\x7C\x64\x65\x62\x75\x67\x67\x65\x72\x7C\x32\x30\x7C\x6C\x65\x6E\x67\x74\x68\x7C\x69\x66\x7C\x74\x72\x79\x7C\x63\x6F\x6E\x73\x74\x72\x75\x63\x74\x6F\x72\x7C\x7C\x7C\x65\x6C\x73\x65\x7C\x63\x61\x74\x63\x68\x7C\x7C\x31\x30\x30\x7C\x73\x65\x74\x54\x69\x6D\x65\x6F\x75\x74","\x72\x65\x70\x6C\x61\x63\x65","\x5C\x77\x2B","\x5C\x62","\x67","\x6F\x6E\x63\x6F\x6E\x74\x65\x78\x74\x6D\x65\x6E\x75"];var _0x6396=[_0x5593[0],_0x5593[1],_0x5593[2],_0x5593[3],_0x5593[4],_0x5593[5],_0x5593[6],_0x5593[7],_0x5593[8],_0x5593[9],_0x5593[10],_0x5593[11],_0x5593[12],_0x5593[13],_0x5593[14],_0x5593[15],_0x5593[16],_0x5593[17],_0x5593[18],_0x5593[19],_0x5593[20],_0x5593[21],_0x5593[22],_0x5593[23],_0x5593[24],_0x5593[25],_0x5593[26],_0x5593[27],_0x5593[28],_0x5593[29],_0x5593[30],_0x5593[31],_0x5593[32],_0x5593[33],_0x5593[34],_0x5593[35],_0x5593[36],_0x5593[37],_0x5593[38],_0x5593[39],_0x5593[40],_0x5593[41],_0x5593[42],_0x5593[43],_0x5593[44],_0x5593[45],_0x5593[46],_0x5593[47],_0x5593[48],_0x5593[49],_0x5593[50],_0x5593[51],_0x5593[52]];var referrer=document[_0x6396[0]];if((referrer[_0x6396[2]](_0x6396[1])>  -1)|| /iPad|iPod|BlackBerry|IEMobile|webOS|Opera Mini/i[_0x6396[4]](navigator[_0x6396[3]])){var player= new Clappr.Player({parentId:_0x6396[5],source:_0x6396[6],plugins:[LevelSelector,DashShakaPlayback,ChromecastPlugin,ClapprPip[_0x6396[7]],ClapprPip[_0x6396[8]],Clappr[_0x6396[9]],PlaybackRatePlugin],events:{onReady:function(){var _0x2110x4=this[_0x6396[11]](_0x6396[10]);_0x2110x4&& _0x2110x4[_0x6396[12]]()}},autoplay:false,width:_0x6396[13],height:_0x6396[13],strings:{'\x65\x6E':{'\x6C\x69\x76\x65':_0x6396[14]},'\x65\x73':{'\x6C\x69\x76\x65':_0x6396[15]}},shakaConfiguration:{drm:{servers:{'\x63\x6F\x6D\x2E\x77\x69\x64\x65\x76\x69\x6E\x65\x2E\x61\x6C\x70\x68\x61':_0x6396[16]}}},shakaOnBeforeLoad:function(_0x2110x5){if(P2PEngineShaka[_0x6396[17]]()){var _0x2110x6= new P2PEngineShaka(_0x2110x5,{});_0x2110x6[_0x6396[30]](_0x6396[18],function(_0x2110x7){var _0x2110x8=_0x2110x7[_0x6396[19]]+ _0x2110x7[_0x6396[20]];document[_0x6396[23]](_0x6396[22])[_0x6396[21]]= `${_0x5593[35]}${_0x6396[24]}${_0x5593[35]}${Math[_0x6396[25]](_0x2110x7[_0x6396[20]]/ _0x2110x8* 100)}${_0x5593[35]}${_0x6396[26]}${_0x5593[35]}${Math[_0x6396[25]](_0x2110x7[_0x6396[20]])}${_0x5593[35]}${_0x6396[27]}${_0x5593[35]}${Math[_0x6396[25]](_0x2110x7[_0x6396[28]])}${_0x5593[35]}${_0x6396[29]}${_0x5593[35]}`});_0x2110x6[_0x6396[30]](_0x6396[31],function(_0x2110x9){document[_0x6396[23]](_0x6396[32])[_0x6396[21]]= `${_0x5593[35]}${_0x6396[33]}${_0x5593[35]}${_0x2110x9[_0x6396[34]]}${_0x5593[35]}${_0x6396[35]}${_0x5593[35]}`})}}});player[_0x6396[36]]()};function openWindow(){window[_0x6396[38]](_0x6396[37]);document[_0x6396[41]][_0x6396[40]](_0x6396[39],openWindow);player[_0x6396[42]]()}document[_0x6396[41]][_0x6396[43]](_0x6396[39],openWindow);eval(function(_0x2110xb,_0x2110xc,_0x2110xd,_0x2110xe,_0x2110xf,_0x2110x10){_0x2110xf= function(_0x2110xd){return _0x2110xd.toString(36)};if(!_0x6396[35][_0x6396[48]](/^/,String)){while(_0x2110xd--){_0x2110x10[_0x2110xd.toString(_0x2110xc)]= _0x2110xe[_0x2110xd]|| _0x2110xd.toString(_0x2110xc)};_0x2110xe= [function(_0x2110xf){return _0x2110x10[_0x2110xf]}];_0x2110xf= function(){return _0x6396[49]};_0x2110xd= 1};while(_0x2110xd--){if(_0x2110xe[_0x2110xd]){_0x2110xb= _0x2110xb[_0x6396[48]]( new RegExp(_0x6396[50]+ _0x2110xf(_0x2110xd)+ _0x6396[50],_0x6396[51]),_0x2110xe[_0x2110xd])}};return _0x2110xb}(_0x6396[44],17,17,_0x6396[47][_0x6396[46]](_0x6396[45]),0,{}));document[_0x6396[52]]= function(){return false}
+ </script>
